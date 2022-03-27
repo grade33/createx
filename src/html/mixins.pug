@@ -1,0 +1,27 @@
+//- solid, outline
+//- orange, secondary, dark, white
+//- small, regular, large
+//- Value
+//- submit or href
+//- class
+mixin btn(filling,color,size,val,type,clas)
+  button(class="btn-"+filling+"-"+color+" btn-"+filling+"-"+color+"_"+size+" "+clas type=type)= val
+mixin link(filling,color,size,val,href,clas)
+  a(class="btn-"+filling+"-"+color+" btn-"+filling+"-"+color+"_"+size+" "+clas href=href)= val
+mixin btn-icon(filling,color,size,val,type,clas)
+  button(class="btn-"+filling+"-"+color+" btn-"+filling+"-"+color+"_"+size+" "+clas type=type)
+    val
+    svg
+      use(xlink:href="@img/sprite.svg#right")
+mixin link-icon(filling,color,size,val,href,clas)
+  a(class="btn-"+filling+"-"+color+" btn-"+filling+"-"+color+"_"+size+" "+clas href=href)
+    val
+    svg
+      use(xlink:href="@img/sprite.svg#right")
+
+
+mixin more(title,btnTitle,href)
+  .more
+    h3.more-title= title
+    +link('solid','orange','large',btnTitle,href,'')
+

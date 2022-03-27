@@ -1,0 +1,50 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Services
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .services
+      +header(false,2)
+      main.main
+        section.hero.services__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                span.breadcrumbs__last Services
+            .hero__content
+              h1.hero__title Services
+              p.hero__desc If you are looking for a full-service construction company, look to Createx Construction Bureau. We are doing our best to be a partner for all of your construction needs.
+        section.maintenance.services__maintenance
+          .services__maintenance-bg.services__maintenance-bg_center
+          .services__maintenance-bg.services__maintenance-bg_bottom
+          .container.maintenance__container
+            h2.visually-hidden Our Services
+            ul.maintenance__list
+              -
+                var info = [
+                  ['services-1.html','Construction','Sapien, feugiat faucibus orci arcu, vulputate. Tristique varius consectetur vulputate arcu, scelerisque nisi, nibh. Enim semper id sodales ultricies sed ut ut augue. Mattis habitant venenatis, gravida posuere massa ac interdum. Eget aliquam dignissim ut vestibulum.'],
+                  ['services-1.html','Project Development','Volutpat tellus mauris sit sit. Posuere ut sit vestibulum amet viverra in. Est nulla lectus purus tincidunt massa tortor. Hendrerit vulputate elementum blandit massa vitae amet felis eget. '],
+                  ['services-1.html','Interior Design','Eleifend orci massa et facilisis orci feugiat ac. Congue in ut lacus, turpis accumsan gravida. Aliquet mattis dignissim massa sociis a, id bibendum. Egestas lorem eros, mi cras amet, vel eget molestie. Turpis enim arcu, amet donec massa pellentesque nulla duis. Arcu dictum metus sed purus senectus faucibus eget elementum pretium. '],
+                  ['services-1.html','Repairs','Facilisis cursus feugiat sit pulvinar amet. Ac facilisi dictum commodo, tortor gravida pretium, orci. Nunc sit sollicitudin id egestas mattis. Turpis viverra nec urna ultrices urna. ']
+                ]
+                var i = 1
+              each arr in info
+                li.maintenance__item
+                  .maintenance__img-wrap
+                    div(class='maintenance__img maintenance__img_'+i)
+                  .maintenance__content
+                    h3.maintenance__heading=arr[1]
+                    p.maintenance__expostion=arr[2]
+                    +link('outline','orange','regular','Learn more',arr[0],'')
+                    - i++
+      include ./html/footer.pug
+

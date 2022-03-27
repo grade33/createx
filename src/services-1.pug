@@ -1,0 +1,252 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Interior Design
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .services-1
+      +header(false,2)
+      main.main
+        section.hero.services-1__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./services.html") Services
+              li.breadcrumbs__item
+                span.breadcrumbs__last Interior Design
+            .hero__content
+              h1.hero__title Interior Design
+              p.hero__desc Dui augue nec mi mi. Ut ac lectus donec fames pellentesque. Laoreet aenean vulputate elementum blandit amet.
+        section.offer.services-1__offer
+          .container.offer__container
+            .offer__img-wrap
+              .offer__img
+            .offer__content
+              h2.offer__title We offer
+              .accordion
+                .accordion__item.accordion__item_active
+                  button.accordion__btn(type="button")
+                    span.accordion__icons
+                      svg.accordion__icon.accordion__icon_plus
+                        use(xlink:href="@img/sprite.svg#plus")
+                      svg.accordion__icon.accordion__icon_minus
+                        use(xlink:href="@img/sprite.svg#minus")
+                    strong.accordion__heading Interior design of apartments
+                  .accordion__panel
+                    p.accordion__desc Adipiscing nunc arcu enim elit mattis eu placerat proin. Imperdiet elementum faucibus dignissim purus. Fusce parturient diam magna ullamcorper morbi semper massa ac facilisis.
+                .accordion__item
+                  button.accordion__btn(type="button")
+                    span.accordion__icons
+                      svg.accordion__icon.accordion__icon_plus
+                        use(xlink:href="@img/sprite.svg#plus")
+                      svg.accordion__icon.accordion__icon_minus
+                        use(xlink:href="@img/sprite.svg#minus")
+                    strong.accordion__heading Interior design of private houses
+                  .accordion__panel
+                    p.accordion__desc Adipiscing nunc arcu enim elit mattis eu placerat proin. Imperdiet elementum faucibus dignissim purus. Fusce parturient diam magna ullamcorper morbi semper massa ac facilisis.
+        section.steps.services-1__steps
+          .container.steps__container
+            h2.steps__title That’s how we do it
+            ol.steps__list
+              -
+                var step = [
+                  ['Work Estimate','Culpa nostrud commodo ea consequat aliquip reprehenderit.'],
+                  ['Contract','Laoreet ultrices curabitur luctus quisque consequat. Leo lorem velit imperdiet auctor et tempor.'],
+                  ['Mobilization ','Odio massa scelerisque purus arcu sed velit eleifend cursus leo.'],
+                  ['Construction Work','Adipisicing esse aliqua aliquip qui amet. Aute eiusmod dolore dolore et ad et veniam ad deserunt.']
+                ]
+              each i in step
+                li.steps__item
+                  span.steps__counter
+                  h3.steps__heading=i[0]
+                  p.steps__desc=i[1]
+        section.benefits.benefits_dark.services-1__benefits
+          .container.benefits__container
+            h2.benefits__title Our benefits
+            p.benefits__desc Our mission is to set the highest standards for construction sphere.
+            ul.benefits__list.services-1__benefits-list
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-contract")
+                h3.benefits__item-title Fixed Terms & Cost
+                p.benefits__item-desc Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-helmet")
+                h3.benefits__item-title Qualified Workers
+                p.benefits__item-desc Anim reprehenderit sint voluptate exercitation adipisicing laborum adipisicing. Minim empor est ea.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-camera")
+                h3.benefits__item-title Supervision & Control
+                p.benefits__item-desc Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco proident ea ad.
+            +link('solid','orange','large','Discuss a project','./contacts.html','services-1__benefits-btn')
+        section.projects.services-1__projects
+          .container.projects__container
+            h2.projects__title Related projects
+            div.swiper.projects__swiper
+              ul.swiper-wrapper
+                li.swiper-slide.project(tabindex="0")
+                  img.project__img(src="@img/work/work-5.jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title Kids Bedroom With Decorations
+                    span.project__desc Apartments & flats
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project','./work-1.html','project__link')
+                li.swiper-slide.project(tabindex="0")
+                  img.project__img(src="@img/work/work-4.jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title Modern Double Bedroom
+                    span.project__desc Apartments & flats
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project','./work-1.html','project__link')
+                li.swiper-slide.project(tabindex="0")
+                  img.project__img(src="@img/work/work-8.jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title Scandinavian Style Interior
+                    span.project__desc Private houses
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project','./work-1.html','project__link')
+              .swiper-buttons-block
+                button.swiper-button-prev(type="button")
+                  svg
+                    use(xlink:href="@img/sprite.svg#left")
+                button.swiper-button-next(type="button")
+                  svg
+                    use(xlink:href="@img/sprite.svg#right")
+            +more('Explore all our works','View Portfolio','./work.html')
+        section.pricing.services-1__pricing
+          .container.pricing__container
+            h2.pricing__title Pricing
+            p.pricing__desc We offer you three categories of construction.
+            .table-wrap
+              table.table.pricing__table
+                caption.visually-hidden Tariffs table
+                thead.table__head
+                  tr.table__head-row
+                    th.table__head-col.table__title-small Items
+                    th.table__head-col
+                      span.table__title-big BASIC
+                      span.table__subtitle $20 per m2
+                    th.table__head-col
+                      span.table__title-big STANDARD
+                      span.table__subtitle $30 per m2
+                    th.table__head-col
+                      span.table__title-big BUSINESS
+                      span.table__subtitle $40 per m2
+                tfoot.table__foot
+                  tr
+                    td.table__foot-col
+                    td.table__foot-col
+                      +link('outline','orange','small','Send request','./contacts.html','table__foot-btn')
+                    td.table__foot-col
+                      +link('outline','orange','small','Send request','./contacts.html','table__foot-btn')
+                    td.table__foot-col
+                      +link('outline','orange','small','Send request','./contacts.html','table__foot-btn')
+                tbody.table__body
+                  tr.table__row
+                    td.table__col Installation plan
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Planning solutions (2-3 options)
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Lighting plan
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Flooring plan
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Heating floor laying scheme
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Air conditioner zones layout
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col 3D visualization of all rooms
+                    td.table__col simplified
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Visualization of each room (3-4 angles)
+                    td.table__col
+                    td.table__col
+                    td.table__col
+                      svg.table__mark
+                        use(xlink:href="@img/sprite.svg#mark")
+                  tr.table__row
+                    td.table__col Terms
+                    td.table__col 10 days
+                    td.table__col 20 days
+                    td.table__col 30 days
+        section.partners.services-1__partners
+            .container.partners__container
+              h2.partners__title Supported by 12+ partners
+              - var i = 0
+              ul.partners__list
+                while i < 6
+                  li.partners__item
+                    - i++
+                    a.partners__link(href="#" target="_blank")
+                      img.partners__img(src="@img/about/partners/client-logo-"+i+".svg", alt="Partner company logo")
+      include ./html/footer.pug

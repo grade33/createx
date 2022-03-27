@@ -1,0 +1,167 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title About Us
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .about
+      +header(false,1)
+      main.main
+        section.hero.about__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                span.breadcrumbs__last About Us
+            .hero__content
+              h1.hero__title About Us
+              p.hero__desc Createx Construction Bureau has been successfully operating in the USA construction market since 2000. We are proud to offer you quality construction and exemplary service.
+        section.achieve.about__achieve
+          .container.achieve__container
+            h2.visually-hidden Statistics
+            ul.achieve__list
+              li.achieve__item
+                svg.achieve__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-like")
+                strong.achieve__item-title Clients on the recommendation of friends
+                strong.achieve__item-amount 60%
+              li.achieve__item
+                svg.achieve__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-painting")
+                strong.achieve__item-title Apartments renovated
+                strong.achieve__item-amount 2400+
+              li.achieve__item
+                svg.achieve__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-helmet")
+                strong.achieve__item-title Qualified specialists
+                strong.achieve__item-amount 670
+              li.achieve__item
+                svg.achieve__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-pantone")
+                strong.achieve__item-title Finishing work was carried out
+                strong.achieve__item-amount 150000+ m<sup class="achieve__item-amount_sup">2</sup>
+            .achieve__quotation
+              img.achieve__img(src="@img/about/man.jpg", alt="Author quotation")
+              .achieve__quote
+                blockquote.achieve__excerpt-wrap
+                  p.achieve__excerpt Dapibus nec vitae ante mattis. Aliquam phasellus ac dui augue in. Sed aliquet in egestas hac at proin sed quam. Etiam aliquet sagittis non, massa cum pulvinar. Et in leo, tempus purus vestibulum ut blandit et mi. Odio massa purus vel praesent arcu enim elit felis viverra.
+                  p.achieve__excerpt Magna aliquam interdum mattis ipsum arcu. Elit odio elit viverra quis metus amet eleifend amet. Vet suspendisse faucibus tempor ipsum integer.
+                .achieve__quote-bottom
+                  .achieve__name-actio
+                    span.achieve__name Courtney Alexander
+                    span.achieve__actio CEO - Createx Construction Bureau
+                  span.achieve__signature
+        section.benefits.about__benefits
+          .container.benefits__container
+            h2.benefits__title Our core values
+            p.benefits__desc Our mission is to set the highest standards for construction sphere.
+            ul.benefits__list
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-like")
+                h3.benefits__item-title Quality
+                p.benefits__item-desc Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-hand")
+                h3.benefits__item-title Safety
+                p.benefits__item-desc Anim reprehenderit sint voluptate exercitation adipisicing laborum adipisicing. Minim empor est ea.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-slippers")
+                h3.benefits__item-title Comfort
+                p.benefits__item-desc Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco proident ea ad.
+        section.history.about__history
+          .container.history__container
+            h2.history__title Our history
+            .history__content
+              -
+                var historyInfo = [
+                  ['Present','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['March 2019','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['November 2018','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['July 2015','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['August 2010','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['February 2007','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['May 2004','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['October 2001','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.'],
+                  ['June 2000','swiper-bg-1.jpg','Bcelerisque dapibus pharetra nibh semper iaculis duis viverra porttitor in. Eu nec vitae, malesuada vitae egestas integer et morbi. Maecenas sed quis diam posuere malesuada magnis. Bcelerisque dapibus.  Eu nec vitae.']
+                ]
+              ul.history__nav
+                each i in historyInfo
+                  li.history__nav-item
+                    button.history__nav-btn(type="button")=i[0]
+              div.swiper.history__swiper
+                ul.swiper-wrapper
+                  each i in historyInfo
+                    li.swiper-slide.history__swiper-item
+                      img.history__swiper-img(src="@img/about/"+i[1], alt="Photo")
+                      p.history__swiper-desc=i[2]
+                .swiper-buttons-block
+                  button.swiper-button-prev(type="button")
+                    svg
+                      use(xlink:href="@img/sprite.svg#left")
+                  button.swiper-button-next(type="button")
+                    svg
+                      use(xlink:href="@img/sprite.svg#right")
+        section.partners.about__partners
+          .container.partners__container
+            h2.partners__title.about__partners-title Our partners
+            p.partners__desc We are supported by 12+ industry bodies and media partners
+            - var i = 0
+            ul.partners__list
+              while i < 12
+                li.partners__item
+                  - i++
+                  a.partners__link(href="#" target="_blank")
+                    img.partners__img(src="@img/about/partners/client-logo-"+i+".svg", alt="Partner company logo")
+        section.team.about__team
+          .container.team__container
+            h2.team__title Our team
+            p.team__desc People are at the heart of Createx Construction Bureau
+            ul.team__list
+              -
+                var team = [
+                  ['Courtney Alexander','CEO, Co-Founder'],
+                  ['Calvin Fox','CTO, Co-Founder'],
+                  ['Johnny Lane','Commercial Manager'],
+                  ['Diane Mccoy','Director of Human Resources'],
+                  ['Judith Warren','Lead Accountant'],
+                  ['Floyd Simmmons','Finacial Director'],
+                  ['Serenity Edwards','Director of Marketing'],
+                  ['Shawn Edwards','Tech Lead'],
+                ]
+              - var j = 1
+              each i in team
+                li.team__item(tabindex="0")
+                  .team__img-wrap
+                    img.team__img(src="@img/about/team/person-"+j+".jpg", alt="Photo of a person")
+                    .team__social
+                      -
+                        var social = [
+                          ['linked-in','#'],
+                          ['twitter','#'],
+                          ['facebook','#'],
+                        ]
+                      each i in social
+                        a.team__social-link(href=i[1])
+                          svg.team__social-icon
+                            use(xlink:href="@img/sprite.svg#"+i[0])
+                  strong.team__name=i[0]
+                  span.team__position=i[1]
+                  -j++
+            p.team__info
+              | Become a part of the best team in the construction market of the USA.&nbsp;
+              a.team__link(href="./positions.html") Available Positions
+        section.worldwide.about__worldwide
+          .container.worldwide__container
+            h2.worldwide__title We work worldwide
+            img.worldwide__map(src="@img/about/map.svg", alt="A map showing which countries we work in")
+      include ./html/footer.pug

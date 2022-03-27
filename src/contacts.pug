@@ -1,0 +1,120 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Contacts
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .contacts
+      +header(false,5)
+      main.main
+        section.hero.contacts__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                span.breadcrumbs__last Contacts
+            .hero__content
+              h1.hero__title Contacts
+              p.hero__desc Contact us for all your construction needs. We always welcome any questions and comments.
+        section.shape.contacts__shape
+          .container.shape__container
+            h2.shape__title Contact us
+            p.shape__desc Please complete the form. Detailed information will help us to make a tuned offer.
+            .shape__content
+              .shape__img-wrap
+                .shape__img
+              form.shape__form
+                .shape__field-block
+                  label.field.field-large
+                    span Name*
+                    input(type="text" placeholder="Your name" required)
+                  label.select.select-large
+                    span I am interested in
+                    select.choice
+                      option(value="interior-design") Interior Design
+                      option(value="construction") Construction
+                      option(value="project-development") Project Development
+                      option(value="repairs") Repairs
+                  label.field.field-large
+                    span Phone*
+                    input(type="tel" placeholder="Your phone number" required)
+                  label.select.select-large
+                    span Location*
+                    select.choice
+                      option(value="new-york") New York
+                      option(value="new-jersey") New Jersey
+                      option(value="san-francisco") San Francisco
+                  label.field.field-large
+                    span Email
+                    input(type="email" placeholder="Your working email" required)
+                  .radio-wrap
+                    .radio__title Preferred contact method
+                    .radio__inputs
+                      label.radio(tabindex="0")
+                        input.visually-hidden(type="radio" name="contact-method" value="phone" checked tabindex="-1")
+                        span Phone
+                      label.radio(tabindex="0")
+                        input.visually-hidden(type="radio" name="contact-method" value="email" tabindex="-1")
+                        span Email
+                      label.radio(tabindex="0")
+                        input.visually-hidden(type="radio" name="contact-method" value="viber" tabindex="-1")
+                        span Viber
+                  label.field.field-large.shape__field-row
+                    span Message*
+                    textarea(rows="4" placeholder="Your message" required)
+                .shape__btn-checkbox
+                  label.checkbox.shape__checkbox(tabindex="0")
+                    input.visually-hidden(type="checkbox" required tabindex="-1")
+                    span I agree to receive communications from Createx Construction Bureau.
+                  +btn('solid','orange','large','Send Request','submit','')
+        section.offices.contacts__offices
+          .container.offices__container
+            h2.offices__title Our offices
+            p.offices__desc Give us a call, send us a note or visit our office. We can’t wait to hear from you!
+            ul.offices__list
+              -
+                var info = [
+                  ['New York, USA',      '8502 Preston Rd. Inglewood, New York 98380',       '#', '(405) 555-0128', 'hello@createx.com', 'Mon - Fri 9:00 - 18:00'],
+                  ['New Jersey, USA',    '2464 Royal Ln. Mesa, New Jersey 45463',            '#', '(808) 555-0111', 'hello@createx.com', 'Mon - Fri 9:00 - 18:00'],
+                  ['San Francisco, USA', '8502 Preston Rd. Inglewood , San Francisco 98380', '#', '(505) 555-0125', 'hello@createx.com', 'Mon - Fri 10:00 - 19:00']
+                ]
+              each i in info
+                - var number = i[3].replace(' ', '').replace('(', '').replace(')', '').replace('-', '')
+                li.offices__item
+                  h3.offices__item-title=i[0]
+                  address.offices__address=i[1]
+                  a.offices__map-link(href=i[2]) See on the map
+                  ul.offices__contacts
+                    li.offices__contacts-item
+                      strong.offices__contacts-title Call:
+                      a.offices__contacts-name.offices__contacts-link(href="tel:"+number)=i[3]
+                    li.offices__contacts-item
+                      strong.offices__contacts-title Email:
+                      a.offices__contacts-name.offices__contacts-link(href="mailto:"+i[4])=i[4]
+                    li.offices__contacts-item
+                      strong.offices__contacts-title Schedule:
+                      span.offices__contacts-name=i[5]
+            .offices__find
+              h2.offices__find-title Find us at
+              ul.offices__find-list
+                -
+                  var aba = [
+                    ['whatsapp','#'],
+                    ['messanger','#'],
+                    ['facebook','#'],
+                    ['twitter','#'],
+                    ['youtube','#']
+                  ]
+                each i in aba
+                  li.offices__find-item
+                    a.offices__find-link(href=i[1])
+                      svg.offices__find-icon
+                        use(xlink:href="@img/sprite.svg#"+i[0])
+      include ./html/footer.pug

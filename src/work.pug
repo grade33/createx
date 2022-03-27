@@ -1,0 +1,117 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Our Work
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .work
+      +header(false,3)
+      main.main
+        section.hero.work__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                span.breadcrumbs__last Work
+            .hero__content
+              h1.hero__title Our Work
+              p.hero__desc Our portfolio represents 20 years of construction experience backed by a passion for perfect client service, quality and innovations in consctuction industry.
+        section.works.work__works
+          .container.works__container
+            h2.visually-hidden Portfolio
+            ul.works__category
+              -
+                var categories = [
+                  ['All Projects','ic-house','works__category-btn_active'],
+                  ['Construction','ic-construction',''],
+                  ['Project Development','ic-plan',''],
+                  ['Interior Design','ic-pantone',''],
+                  ['Repairs','ic-painting','']
+                ]
+              each i in categories
+                li.works__category-item
+                  button.works__category-btn(class=i[2] type="button")
+                    svg.works__category-icon
+                      use(xlink:href="@img/sprite.svg#"+i[1])
+                    span.works__category-title=i[0]
+            ul.works__list
+              -
+                var projects = [
+                  ['Cubes Building','Business Centers','./work-1.html'],
+                  ['Modern Cottage','Private houses','./work-1.html'],
+                  ['Luxury Beach House','Private houses','./work-1.html'],
+                  ['Modern Double Bedroom','Apartments & flats','./work-1.html'],
+                  ['Kids Bedroom With Decorations','Apartments & flats','./work-1.html'],
+                  ['The Pencil Building','Stores & Malls','./work-1.html'],
+                  ['Red Finger Building','Business Centers','./work-1.html'],
+                  ['Scandinavian Style Interior','Private houses','./work-1.html'],
+                  ['Brown and Gray Painted House','Private houses','./work-1.html']
+                ]
+              - var j = 1
+              each i in projects
+                li.works__item.project(class=i[3] tabindex="0")
+                  img.project__img(src="@img/work/work-"+j+".jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title=i[0]
+                    span.project__desc=i[1]
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project',i[2],'project__link')
+                      - j++
+            button.works__load(type="button")
+              svg.works__load-icon
+                use(xlink:href="@img/sprite.svg#convert")
+              span.works__load-text Load more
+        section.review.work__review
+          .container.review__container
+            .review__content
+              h2.review__title What our clients are saying
+              div.swiper.review__swiper
+                ul.swiper-wrapper
+                  li.swiper-slide.review__post
+                    .review__avatar-wrap
+                      img.review__avatar(src="@img/global/review/profile-image.jpg", alt="Avatar")
+                    p.review__comment Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum eiusmod enim. Consectetur magna cillum consequat minim  laboris cillum laboris voluptate minim proident exercitation ullamco.
+                    .review__name-position
+                      strong.review__name Shawn Edwards
+                      span.review__position Position, Company name
+                  li.swiper-slide.review__post
+                    .review__avatar-wrap
+                      img.review__avatar(src="@img/global/review/profile-image.jpg", alt="Avatar")
+                    p.review__comment Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum eiusmod enim. Consectetur magna cillum consequat minim  laboris cillum laboris voluptate minim proident exercitation ullamco.
+                    .review__name-position
+                      strong.review__name Shawn Edwards
+                      span.review__position Position, Company name
+                  li.swiper-slide.review__post
+                    .review__avatar-wrap
+                      img.review__avatar(src="@img/global/review/profile-image.jpg", alt="Avatar")
+                    p.review__comment Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum eiusmod enim. Consectetur magna cillum consequat minim  laboris cillum laboris voluptate minim proident exercitation ullamco.
+                    .review__name-position
+                      strong.review__name Shawn Edwards
+                      span.review__position Position, Company name
+                .swiper-buttons-block
+                  button.swiper-button-prev(type="button")
+                    svg
+                      use(xlink:href="@img/sprite.svg#left")
+                  button.swiper-button-next(type="button")
+                    svg
+                      use(xlink:href="@img/sprite.svg#right")
+            .review__img-wrap
+              .review__img
+        section.partners.work__partners
+          .container.partners__container
+            h2.partners__title Our clients
+            - var i = 0
+            ul.partners__list
+              while i < 6
+                li.partners__item
+                  - i++
+                  a.partners__link(href="#" target="_blank")
+                    img.partners__img(src="@img/about/partners/client-logo-"+i+".svg", alt="Partner company logo")
+      include ./html/footer.pug

@@ -1,0 +1,163 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Available Positions
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .positions
+      +header(false,1)
+      main.main
+        section.hero.positions__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./about.html") About Us
+              li.breadcrumbs__item
+                span.breadcrumbs__last Available Positions
+            .hero__content
+              h1.hero__title Available Positions
+              p.hero__desc Build your career with Createx Construction Bureau.
+        section.vacancy.positions__vacancy
+          .container.vacancy__container
+            h2.visually-hidden Search your position
+            ul.vacancy__list
+              -
+                var vacancy = [
+                  ['Heavy Equipment Operator','New York','Full Time',''],
+                  ['Financial Compliance Analyst','San Francisco','Full Time',''],
+                  ['Project Manager - Buildings','New Jersey','Full Time',''],
+                  ['Environment Specialist','New York','Part Time',''],
+                  ['Accountant','New York','Full Time','']
+                ]
+              each i in vacancy
+                li.vacancy__item
+                  .vacancy__item-content
+                    .vacancy__item-info-block
+                      .vacancy__item-info
+                        svg.vacancy__item-info-icon
+                          use(xlink:href="@img/sprite.svg#pin-outline")
+                        span.vacancy__item-info-text=i[1]
+                      .vacancy__item-info
+                        svg.vacancy__item-info-icon
+                          use(xlink:href="@img/sprite.svg#clock")
+                        span.vacancy__item-info-text=i[2]
+                    h3.vacancy__item-title=i[0]
+                  button(class="btn-outline-orange btn-outline-orange_regular vacancy__item-btn" data-modal-btn="vacancy" type="button") Apply now
+            .vacancy__look
+              h3.vacancy__look-title Didn’t find what you were looking for?
+              p.vacancy__look-desc Send your CV or subscribe to our newsletter to receive information about new vacancies.
+              .vacancy__look-btn-block
+                button(class="btn-outline-orange btn-outline-orange_large vacancy__look-btn vacancy__look-btn_subscribe" data-modal-btn="subscribe" type="button") Subscribe
+                button(class="btn-solid-orange btn-solid-orange_large vacancy__look-btn vacancy__look-btn_cv" data-modal-btn="cv" type="button") Send CV
+        section.benefits.positions__benefits
+          .container.benefits__container
+            h2.benefits__title Employee benefits
+            p.benefits__desc There’s always room for talent.
+            ul.benefits__list
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-brain")
+                h3.benefits__item-title Training
+                p.benefits__item-desc Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-success")
+                h3.benefits__item-title Professional Growth
+                p.benefits__item-desc Anim reprehenderit sint voluptate exercitation adipisicing laborum adipisicing. Minim empor est ea.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-budget")
+                h3.benefits__item-title Growing Salary
+                p.benefits__item-desc Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco proident ea ad.
+      include ./html/footer.pug
+      .modal
+        .modal__container
+          .modal__content(data-modal="subscribe")
+            button.modal__close(type="button")
+              svg.modal__close-icon
+                use(xlink:href="@img/sprite.svg#cross")
+            .positions-modal.positions-modal_subscribe
+              h2.positions-modal__title Subscribe to our newsletter
+              form.positions-modal__form
+                .positions-modal__field-block
+                  label.field.field-default
+                    span Name*
+                    input(type="text" placeholder="Your name" required)
+                  label.field.field-default
+                    span Email*
+                    input(type="email" placeholder="Your working email" required)
+                +btn('solid','orange','regular','Send','submit','positions-modal__btn')
+          .modal__content(data-modal="cv")
+            button.modal__close(type="button")
+              svg.modal__close-icon
+                use(xlink:href="@img/sprite.svg#cross")
+            .positions-modal.positions-modal_cv
+              h2.positions-modal__title Send your CV
+              form.positions-modal__form
+                .positions-modal__field-block
+                  label.field.field-default
+                    span Name*
+                    input(type="text" placeholder="Your name" required)
+                  label.select.select-default
+                    span Location*
+                    select.choice
+                      option(value="") Choose your location
+                      option(value="new-york") New York
+                      option(value="new-jersey") New Jersey
+                      option(value="san-francisco") San Francisco
+                  label.field.field-default
+                    span Phone*
+                    input(type="tel" placeholder="Your phone number" required)
+                  label.field.field-default
+                    span Email*
+                    input(type="email" placeholder="Your working email" required)
+                  label.field.field-default.positions-modal__last-field
+                    span Сovering letter*
+                    textarea(rows="3" placeholder="Your covering letter" required)
+                  label.attach.positions-modal__attach
+                    input.visually-hidden(type="file" accept="image/*")
+                    svg
+                      use(xlink:href="@img/sprite.svg#attach")
+                    span Attach your CV*
+                +btn('solid','orange','regular','Send','submit','positions-modal__btn')
+          .modal__content(data-modal="vacancy")
+            button.modal__close(type="button")
+              svg.modal__close-icon
+                use(xlink:href="@img/sprite.svg#cross")
+            .positions-modal.positions-modal_cv
+              h2.positions-modal__title Send your CV
+              form.positions-modal__form
+                .positions-modal__field-block
+                  label.field.field-default
+                    span Name*
+                    input(type="text" placeholder="Your name" required)
+                  label.select.select-default
+                    span Location*
+                    select.choice
+                      option(value="") Choose your location
+                      option(value="new-york") New York
+                      option(value="new-jersey") New Jersey
+                      option(value="san-francisco") San Francisco
+                  label.field.field-default
+                    span Phone*
+                    input(type="tel" placeholder="Your phone number" required)
+                  label.field.field-default
+                    span Email*
+                    input(type="email" placeholder="Your working email" required)
+                  label.field.field-default.positions-modal__last-field
+                    span Сovering letter*
+                    textarea(rows="3" placeholder="Your covering letter" required)
+                  label.attach.positions-modal__attach
+                    input.visually-hidden(type="file" accept="image/*")
+                    svg
+                      use(xlink:href="@img/sprite.svg#attach")
+                    span Attach your CV*
+                +btn('solid','orange','regular','Send','submit','positions-modal__btn')

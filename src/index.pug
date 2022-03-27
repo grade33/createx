@@ -1,0 +1,286 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title CreateX
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .index
+      +header(true)
+      main.main
+        h1.visually-hidden CreateX Construction
+        section.banner.index__banner
+          div.swiper.banner__swiper
+            ul.swiper-wrapper
+              li.swiper-slide.banner__content.banner__bg_1
+                .container.banner__container
+                  h2.banner__title
+                    | Create
+                    span.banner__title_orange X
+                    | Construction
+                  p.banner__desc Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                  .banner__btn-wrap
+                    +link('outline','white','large','Learn more about us','./about.html','')
+                    +link('solid','orange','large','Submit Request','./contacts.html','')
+              li.swiper-slide.banner__content.banner__bg_1
+                .container.banner__container
+                  h2.banner__title
+                    | Create
+                    span.banner__title_orange X
+                    | Construction
+                  p.banner__desc Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                  .banner__btn-wrap
+                    +link('outline','white','large','Learn more about us','./about.html','')
+                    +link('solid','orange','large','Submit Request','./contacts.html','')
+              li.swiper-slide.banner__content.banner__bg_1
+                .container.banner__container
+                  h2.banner__title
+                    | Create
+                    span.banner__title_orange X
+                    | Construction
+                  p.banner__desc Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                  .banner__btn-wrap
+                    +link('outline','white','large','Learn more about us','./about.html','')
+                    +link('solid','orange','large','Submit Request','./contacts.html','')
+              li.swiper-slide.banner__content.banner__bg_1
+                .container.banner__container
+                  h2.banner__title
+                    | Create
+                    span.banner__title_orange X
+                    | Construction
+                  p.banner__desc Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+                  .banner__btn-wrap
+                    +link('outline','white','large','Learn more about us','./about.html','')
+                    +link('solid','orange','large','Submit Request','./contacts.html','')
+            div.swiper-pagination
+            button.swiper-button-prev
+              svg
+                use(xlink:href="@img/sprite.svg#left")
+            button.swiper-button-next
+              svg
+                use(xlink:href="@img/sprite.svg#right")
+        section.presentation.index__presentation
+          .container.presentation__container
+            h2.presentation__title We are Createx Construction Bureau
+            p.presentation__desc We are rightfully considered to be the best construction company in the USA.
+            .video-block
+              button.video-block__play.btn-play(type="button")
+                svg
+                  use(xlink:href="@img/sprite.svg#polygon")
+              video.video-block__video(src="./files/index-video.mp4" preload="metadata" loop muted)
+        section.benefits.index__benefits
+          .container.benefits__container
+            h2.benefits__title Our core values
+            p.benefits__desc Our mission is to set the highest standards for construction sphere.
+            ul.benefits__list.index__benefits-list
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-like")
+                h3.benefits__item-title Quality
+                p.benefits__item-desc Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-hand")
+                h3.benefits__item-title Safety
+                p.benefits__item-desc Anim reprehenderit sint voluptate exercitation adipisicing laborum adipisicing. Minim empor est ea.
+              li.benefits__item
+                svg.benefits__item-icon
+                  use(xlink:href="@img/sprite.svg#ic-slippers")
+                h3.benefits__item-title Comfort
+                p.benefits__item-desc Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco proident ea ad.
+            form.question.index__benefits-question
+              h3.question__title Want to know more? Ask us a question:
+              .question__content
+                label.field.field-default.question__input
+                  span Name
+                  input(type="text" placeholder="Your text" required)
+                label.field.field-default.question__input
+                  span Phone
+                  input(type="text" placeholder="Your phone" required)
+                label.field.field-default.question__input.question__message
+                  span Message
+                  textarea(placeholder="Your message" rows="1" required)
+                +btn('solid','orange','regular','Send','submit','question__btn')
+        section.serve.index__serve
+          .container.serve__container
+            h2.serve__title Our services
+            p.serve__desc Createx Construction Bureau is a construction giant with a full range of construction services.
+            ul.serve__list
+              -
+                var services = [
+                  ['Construction','ic-construction','./services-1.html'],
+                  ['Project Development','ic-plan','./services-1.html'],
+                  ['Interior Design','ic-pantone','./services-1.html'],
+                  ['Repairs','ic-painting','./services-1.html']
+                ]
+              - var j = 1
+              each i in services
+                li.serve__item
+                  a.serve__item-link(class="serve__item-link_"+j href=i[2])
+                    .serve__item-content
+                      svg.serve__item-icon
+                        use(xlink:href="@img/sprite.svg#"+i[1])
+                      h3.serve__item-title=i[0]
+                      -j++
+            +more('Learn more about our services','View Services','services.html')
+        section.projects.index__projects
+          .container.projects__container
+            h2.projects__title Browse our selected projects and learn more about our work
+            div.swiper.projects__swiper
+              ul.swiper-wrapper
+                li.swiper-slide.project(tabindex="0")
+                  img.project__img(src="@img/work/work-7.jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title Red Finger Building
+                    span.project__desc Business Centers
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project','./work-1.html','project__link')
+                li.swiper-slide.project(tabindex="0")
+                  img.project__img(src="@img/work/work-1.jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title Cubes Building
+                    span.project__desc Business Centers
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project','./work-1.html','project__link')
+                li.swiper-slide.project(tabindex="0")
+                  img.project__img(src="@img/work/work-6.jpg", alt="Photo of one of our works")
+                  .project__content
+                    h3.project__title The Pencil Building
+                    span.project__desc Stores & Malls
+                    .project__link-wrap
+                      +link('outline','orange','regular','View Project','./work-1.html','project__link')
+              .swiper-buttons-block
+                button.swiper-button-prev(type="button")
+                  svg
+                    use(xlink:href="@img/sprite.svg#left")
+                button.swiper-button-next(type="button")
+                  svg
+                    use(xlink:href="@img/sprite.svg#right")
+            +more('Explore all our works','View Portfolio','./work.html')
+        section.partners.index__partners
+          .container.partners__container
+            h2.partners__title Supported by 12+ partners
+            - var i = 0
+            ul.partners__list
+              while i < 6
+                li.partners__item
+                  - i++
+                  a.partners__link(href="#" target="_blank")
+                    img.partners__img(src="@img/about/partners/client-logo-"+i+".svg", alt="Partner company logo")
+        section.review.index__review
+            .container.review__container
+              .review__content
+                h2.review__title What our clients are saying
+                div.swiper.review__swiper
+                  ul.swiper-wrapper
+                    li.swiper-slide.review__post
+                      .review__avatar-wrap
+                        img.review__avatar(src="@img/global/review/profile-image.jpg", alt="Avatar")
+                      p.review__comment Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum eiusmod enim. Consectetur magna cillum consequat minim  laboris cillum laboris voluptate minim proident exercitation ullamco.
+                      .review__name-position
+                        strong.review__name Shawn Edwards
+                        span.review__position Position, Company name
+                    li.swiper-slide.review__post
+                      .review__avatar-wrap
+                        img.review__avatar(src="@img/global/review/profile-image.jpg", alt="Avatar")
+                      p.review__comment Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum eiusmod enim. Consectetur magna cillum consequat minim  laboris cillum laboris voluptate minim proident exercitation ullamco.
+                      .review__name-position
+                        strong.review__name Shawn Edwards
+                        span.review__position Position, Company name
+                    li.swiper-slide.review__post
+                      .review__avatar-wrap
+                        img.review__avatar(src="@img/global/review/profile-image.jpg", alt="Avatar")
+                      p.review__comment Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum eiusmod enim. Consectetur magna cillum consequat minim  laboris cillum laboris voluptate minim proident exercitation ullamco.
+                      .review__name-position
+                        strong.review__name Shawn Edwards
+                        span.review__position Position, Company name
+                  .swiper-buttons-block
+                    button.swiper-button-prev(type="button")
+                      svg
+                        use(xlink:href="@img/sprite.svg#left")
+                    button.swiper-button-next(type="button")
+                      svg
+                        use(xlink:href="@img/sprite.svg#right")
+              .review__img-wrap
+                .review__img
+        .sections-block-index-img
+          section.statistics.index__statistics
+            .container.statistics__container
+              h2.statistics__title Some facts and figures
+              ul.statistics__list
+                li.statistics__item
+                  strong.statistics__item-title Totally satisfied clients
+                  .statistics__stat
+                    strong.statistics__percent 98%
+                    svg.statistics__progress.statistics__progress_1(width="148" height="148" viewBox="0 0 148 148" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      circle.statistics__progress-circle-bg(cx="74" cy="74" r="71" opacity="0.3" stroke="#000" stroke-width="6")
+                      circle.statistics__progress-circle(cx="74" cy="74" r="71" stroke="#000" stroke-width="6")
+                li.statistics__item
+                  strong.statistics__item-title Years of experience
+                  .statistics__stat
+                    strong.statistics__percent 20
+                    svg.statistics__progress.statistics__progress_2(width="148" height="148" viewBox="0 0 148 148" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      circle.statistics__progress-circle-bg(cx="74" cy="74" r="71" opacity="0.3" stroke="#000" stroke-width="6")
+                      circle.statistics__progress-circle(cx="74" cy="74" r="71" stroke="#000" stroke-width="6")
+                li.statistics__item
+                  strong.statistics__item-title Working hours spent
+                  .statistics__stat
+                    strong.statistics__percent 9452
+                    svg.statistics__progress.statistics__progress_3(width="148" height="148" viewBox="0 0 148 148" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      circle.statistics__progress-circle-bg(cx="74" cy="74" r="71" opacity="0.3" stroke="#000" stroke-width="6")
+                      circle.statistics__progress-circle(cx="74" cy="74" r="71" stroke="#000" stroke-width="6")
+                li.statistics__item
+                  strong.statistics__item-title Succeeded projects
+                  .statistics__stat
+                    strong.statistics__percent 100%
+                    svg.statistics__progress.statistics__progress_4(width="148" height="148" viewBox="0 0 148 148" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      circle.statistics__progress-circle-bg(cx="74" cy="74" r="71" opacity="0.3" stroke="#000" stroke-width="6")
+                      circle.statistics__progress-circle(cx="74" cy="74" r="71" stroke="#000" stroke-width="6")
+          section.newsy.index__newsy
+            .container.newsy__container
+              h2.newsy__title Recent news
+              ul.newsy__list
+                li.newsy__item
+                  .newsy__img.newsy__img_1
+                  .newsy__text-block
+                    h3.newsy__item-title
+                      a.newsy__link(href="./post.html") How to Build Climate Change-Resilient Infrastructure
+                    .post-info.newsy__info
+                      span.post-info__category Industry News
+                      time.post-info__date(datetime="2020-06-24") June 24, 2020
+                      .post-info__comment
+                        svg.post-info__comment-icon
+                          use(xlink:href="@img/sprite.svg#chat")
+                        span.post-info__comment-text 4 comments
+                    p.post-info__desc Ipsum aliquet nisi, hendrerit rhoncus quam tortor, maecenas faucibus. Tincidunt aliquet sit vel, venenatis nulla. Integer bibendum turpis convallis enim, nibh convallis...
+                li.newsy__item
+                  .newsy__img.newsy__img_2
+                  .newsy__text-block
+                    h3.newsy__item-title
+                      a.newsy__link(href="./post.html") How Construction Can Help Itself
+                    .post-info
+                      span.post-info__category Innovation
+                      time.post-info__date(datetime="2020-06-12") June 12, 2020
+                      .post-info__comment
+                        svg.post-info__comment-icon
+                          use(xlink:href="@img/sprite.svg#chat")
+                        span.post-info__comment-text No comments
+                li.newsy__item
+                  .newsy__img.newsy__img_3
+                  .newsy__text-block
+                    h3.newsy__item-title
+                      a.newsy__link(href="./post.html") Types of Flooring Materials
+                    .post-info
+                      span.post-info__category Company News
+                      time.post-info__date(datetime="2019-12-01") December 1, 2019
+                      .post-info__comment
+                        svg.post-info__comment-icon
+                          use(xlink:href="@img/sprite.svg#chat")
+                        span.post-info__comment-text No comments
+              +more('Explore all our news posts','View all news','./news.html')
+      include ./html/footer.pug

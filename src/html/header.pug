@@ -1,0 +1,73 @@
+mixin header(val,active)
+  - var static = val ? " header_static" : ""
+  header#header.header(class=static)
+    .container.header__container
+
+      a.header__logo.logo(href="./index.html")
+        img.logo__img(src="@img/global/logo-black.svg", alt="Логотип CreateX")
+      nav.header__nav.nav
+        ul.nav__list
+          -
+            var nav = [
+              ['About Us', 'about.html', ''],
+              ['Services', 'services.html', ''],
+              ['Work', 'work.html', ''],
+              ['News', 'news.html', ''],
+              ['Contacts', 'contacts.html', '']
+            ]
+          if active
+            - nav[active-1][2] = 'nav__link_active'
+          each i in nav
+            li.nav__item
+              a.nav__link(class=i[2] href=i[1])= i[0]
+      .header__contacts
+        ul.header__contacts-list
+          li.header__contacts-item
+            a.header__contacts-link.header__contacts-link_tel(href="tel:4055550128")
+              svg.header__contacts-icon
+                use(xlink:href="@img/sprite.svg#iphone")
+              span.header__contacts-text
+                span.header__contacts-title Call us
+                span.header__contacts-value (405) 555-0128
+          li.header__contacts-item
+            a.header__contacts-link.header__contacts-link_mail(href="mailto:hello@createx.com")
+              svg.header__contacts-icon
+                use(xlink:href="@img/sprite.svg#chat")
+              span.header__contacts-text
+                span.header__contacts-title Talk to us
+                span.header__contacts-value hello@createx.com
+      button.burger-btn(type="button")
+        span.burger-btn__item
+      .overlay
+      .burger-menu
+        nav.header__nav.nav.nav_adaptive
+            ul.nav__list
+              -
+                var nav = [
+                  ['About Us', 'about.html', ''],
+                  ['Services', 'services.html', ''],
+                  ['Work', 'work.html', ''],
+                  ['News', 'news.html', ''],
+                  ['Contacts', 'contacts.html', '']
+                ]
+              if active
+                - nav[active-1][2] = 'nav__link_active'
+              each i in nav
+                li.nav__item
+                  a.nav__link(class=i[2] href=i[1])= i[0]
+        .header__contacts.header__contacts_adaptive
+          ul.header__contacts-list
+            li.header__contacts-item
+              a.header__contacts-link.header__contacts-link_tel(href="tel:4055550128")
+                svg.header__contacts-icon
+                  use(xlink:href="@img/sprite.svg#iphone")
+                span.header__contacts-text
+                  span.header__contacts-title Call us
+                  span.header__contacts-value (405) 555-0128
+            li.header__contacts-item
+              a.header__contacts-link.header__contacts-link_mail(href="mailto:hello@createx.com")
+                svg.header__contacts-icon
+                  use(xlink:href="@img/sprite.svg#chat")
+                span.header__contacts-text
+                  span.header__contacts-title Talk to us
+                  span.header__contacts-value hello@createx.com

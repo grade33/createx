@@ -1,0 +1,140 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title How to Build Climate Change-Resilient Infrastructure
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .post
+      +header(false,4)
+      main.main
+        section.hero.post__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./news.html") News
+              li.breadcrumbs__item
+                span.breadcrumbs__last How to Build Climate Change-Resilient Infrastructure
+            .hero__content.post__hero-content
+              h1.hero__title.post__hero-title How to Build Climate Change-Resilient Infrastructure
+              .post__hero-bottom
+                .post-info.post__hero-info
+                  span.post-info__category Industry News
+                  .post-info__comment
+                    svg.post-info__comment-icon
+                      use(xlink:href="@img/sprite.svg#clock")
+                    time.post-info__date(datetime="2020-06-24") June 24, 2020
+                  .post-info__comment
+                    svg.post-info__comment-icon
+                      use(xlink:href="@img/sprite.svg#chat")
+                    span.post-info__comment-text 4 comments
+                ul.post__hero-social
+                  li.post__hero-social-item
+                    a.post__hero-social-link(href="#")
+                      svg.post__hero-social-icon
+                        use(xlink:href="@img/sprite.svg#facebook")
+                  li.post__hero-social-item
+                    a.post__hero-social-link(href="#")
+                      svg.post__hero-social-icon
+                        use(xlink:href="@img/sprite.svg#linked-in")
+                  li.post__hero-social-item
+                    a.post__hero-social-link(href="#")
+                      svg.post__hero-social-icon
+                        use(xlink:href="@img/sprite.svg#twitter")
+        section.post__content
+          .container.post__content-container
+            .post__content-img-wrap
+              .post__content-img
+            .post__content-main
+              .article.post__article
+                article.article__content
+                  .article__text-block
+                    h2 Vulputate vitae pellentesque scelerisque luctus consequat mattis pellentesque dui odio. Interdum aenean sit malesuada ornare sed gravida rhoncus, congue. Purus auctor nullam diam quis est hendrerit ac euismod.
+                    p At facilisi sapien posuere eget nunc senectus proin nullam. Tortor senectus in et sagittis, vitae diam cras dignissim. Varius adipiscing eget diam nisi. Orci, consectetur vulputate metus ornare pharetra, neque, fermentum. Vel nec rhoncus, non nunc, neque in massa. Feugiat leo nam nisl lacinia amet, odio. Mi varius viverra risus vel.
+                    p Amet, morbi sed pharetra, elit eget mi potenti. Condimentum orci interdum feugiat lectus libero duis. Nisl massa, elementum varius sit. Nunc felis, porttitor aliquam urna, accumsan et sed. Aliquet non sed duis diam vehicula rhoncus. In dictum nullam tincidunt semper pellentesque purus morbi sed. Ut aliquet velit pharetra, nisi nunc, non.
+                    blockquote Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus  facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in tot euismod vulputate etiam eros. Vel accumsan at elit neque, ipsum.
+                    p Mauris amet arcu nisl vel dictum tellus. Sed rhoncus, ut sed id ut erat mattis. Vitae mus blandit in neque amet non fringilla blandit:
+                    ul
+                      li
+                        svg
+                          use(xlink:href="@img/sprite.svg#check")
+                        |A fermentum in morbi pretium aliquam adipiscing donec tempus.
+                      li
+                        svg
+                          use(xlink:href="@img/sprite.svg#check")
+                        |Vulputate placerat amet pulvinar lorem nisl.
+                      li
+                        svg
+                          use(xlink:href="@img/sprite.svg#check")
+                        |Consequat feugiat habitant gravida quisque elit bibendum id adipiscing sed.
+                      li
+                        svg
+                          use(xlink:href="@img/sprite.svg#check")
+                        |Etiam duis lobortis in fames ultrices commodo nibh.
+                    p Enim, vel massa odio diam. Blandit massa gravida feugiat elementum id nec sed leo. Nisi in ornare lectus eget. Urna, risus, consectetur volutpat lorem purus. Velit aliquet nibh vitae maecenas. Consectetur neque ut aliquam eros, purus enim dignissim aenean vitae. Ultrices fames augue mattis tortor est justo, pharetra nibh risus. Facilisi at porttitor volutpat natoque proin amet, nulla. Vivamus ut lobortis sagittis curabitur tellus convallis eget netus vitae.
+                  .article__social
+                    span.article__social-text Share:
+                    ul.article__social-list
+                      li.article__social-item
+                        a.article__social-link(href="#")
+                          svg.article__social-icon
+                            use(xlink:href="@img/sprite.svg#facebook")
+                      li.article__social-item
+                        a.article__social-link(href="#")
+                          svg.article__social-icon
+                            use(xlink:href="@img/sprite.svg#linked-in")
+                      li.article__social-item
+                        a.article__social-link(href="#")
+                          svg.article__social-icon
+                            use(xlink:href="@img/sprite.svg#twitter")
+              .comments.post__comments
+                h2.comments__title 4 comments
+                ul.comments__list
+                  -
+                    var comments = [
+                      ['Devon Lane','July 15, 2020','','Phasellus varius faucibus ultrices odio in. Massa neque dictum natoque ornare rutrum malesuada et phasellus. Viverra natoque nulla cras vel nisl proin senectus. Tortor sed eleifend ante tristique felis sed urna aliquet. Suspendisse fames egestas sed duis purus diam et.'],
+                      ['Annette Black','1 day ago','Devon Lane','Egestas fermentum natoque sollicitudin mauris. Facilisis praesent urna sed rhoncus quis pharetra pellentesque erat sagittis.'],
+                      ['Albert Flores','July 7, 2020','','Libero commodo sit dui ac proin. Penatibus ultricies at adipiscing mauris nunc. Fames faucibus nisl duis id diam.'],
+                      ['Marvin McKinney','June 28, 2020','','Ullamcorper nibh sed ac ipsum nunc imperdiet rhoncus. Quam donec habitant nibh sit consequat erat libero, tincidunt. Eros ut aliquam proin et duis. Mauris, egestas congue nibh dui a nulla.'],
+                    ]
+                  each i in comments
+                    li.comments__item
+                      article.comments__content
+                        .comments__left
+                          strong.comments__name=i[0]
+                          time.comments__time=i[1]
+                        .comments__right
+                          if !i[2]
+                            p.comments__text=i[3]
+                          else
+                            p.comments__text
+                              a.comments__answer-name(href="#")= "@" + i[2]
+                              | &nbsp;
+                              span=i[3]
+                          button.comments__btn
+                            svg.comments__btn-icon
+                              use(xlink:href="@img/sprite.svg#share-arrow")
+                            | Reply
+              .comment.post__comment
+                h2.comment__title Leave your comment
+                form.comment__form
+                  .comment__field-block
+                    .comment__field-one-line
+                      label.field.field-large.comment__field
+                        span Name*
+                        input(type="text" placeholder="Your name" required)
+                      label.field.field-large.comment__field
+                        span Email*
+                        input(type="email" placeholder="Your working email" required)
+                    label.field.field-large.comment__field
+                      span Your comment*
+                      textarea(rows="3" placeholder="Type comment here" required)
+                  +btn('solid','orange','large','Post Comment','submit','')
+      include ./html/footer.pug

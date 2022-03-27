@@ -1,0 +1,81 @@
+include ./html/mixins.pug
+include ./html/header.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title News
+    link(rel="stylesheet", href="./css/style.min.css")
+    script(defer src="./js/app.min.js")
+  body
+    .news
+      +header(false,4)
+      main.main
+        section.hero.news__hero
+          .container.hero__container
+            ul.breadcrumbs
+              li.breadcrumbs__item
+                a.breadcrumbs__link(href="./index.html") Homepage
+              li.breadcrumbs__item
+                span.breadcrumbs__last News
+            .hero__content
+              h1.hero__title News
+              p.hero__desc Stay tuned with our news, expert tips and articles.
+        section.categories.news__categories
+          .container.categories__container
+            h2.categories__title Categories
+            ul.categories__nav
+              -
+                var categories = [
+                  ['All News','categories__nav-btn_active'],
+                  ['Company News',''],
+                  ['Innovation',''],
+                  ['Industry News',''],
+                  ['Expert Tips',''],
+                  ['Marketing',''],
+                  ]
+              each i in categories
+                li.categories__nav-item
+                  button.categories__nav-btn(class=i[1] type="button")=i[0]
+            ul.categories__list
+              -
+                var news = [
+                  ['How to Build Climate Change-Resilient Infrastructure','Industry News','June 24, 2020','4 comments','Ipsum aliquet nisi, hendrerit rhoncus quam tortor, maecenas faucibus. Tincidunt aliquet sit vel, venenatis nulla. Integer bibendum turpis convallis...'],
+                  ['How Construction Can Help Itself','Innovation','June 12, 2020','No comments','Porta habitant vitae quam interdum. Leo viverra non volutpat rhoncus placerat vitae scelerisque. Rhoncus augue faucibus maecenas lacus...'],
+                  ['The Difference Between a Digger and an Excavator','Expert Tips','May 16, 2020','No comments','Cras est nisi purus velit facilisi vitae, dolor. Lorem scelerisque integer duis et nulla lobortis cursus. Viverra erat sollicitudin praesent viverra...'],
+                  ['Building Construction Hand Tools','Expert Tips','February 25, 2020','1 comment','Tellus quis aliquet volutpat nunc pulvinar donec sed sapien. Vitae elit id dolor, tristique massa. Fames lobortis orci rutrum bibendum integer...'],
+                  ['Top 10 Construction Trends','Industry News','January 14, 2020','No comments','Dignissim sed enim, eleifend morbi condimentum. Congue id quis vulputate dignissim eget. Ac ullamcorper nunc habitasse enim interdum platea...'],
+                  ['Types of Flooring Materials','Company News','December 1, 2019','No comments','Maecenas donec lacinia nunc, quam sit magnis mauris. Neque bibendum et mauris, aenean. Vel arcu amet in sem parturient  integer duis et nulla...']
+                ]
+              - var j = 1
+              each i in news
+                li.categories__item
+                  .categories__img(class="categories__img_"+j)
+                  - j++
+                  .categories__text-block
+                    h3.categories__item-title
+                      a.categories__link(href="./post.html")=i[0]
+                    .post-info.categories__info
+                      span.post-info__category=i[1]
+                      time.post-info__date=i[2]
+                      .post-info__comment
+                        svg.post-info__comment-icon
+                          use(xlink:href="@img/sprite.svg#chat")
+                        span.post-info__comment-text=i[3]
+                    p.post-info__desc=i[4]
+            ul.categories__pagination
+              - var i = 1
+              while i <= 4
+                li.categories__pagination-item
+                  if i == 1
+                    button.categories__pagination-btn.categories__pagination-btn_active(type="button")=i
+                  else
+                    button.categories__pagination-btn(type="button")=i
+                - i++
+              li.categories__pagination-item
+                button.categories__pagination-btn.categories__pagination-btn_next(type="button")
+                  svg.categories__pagination-icon
+                    use(xlink:href="@img/sprite.svg#right")
+      include ./html/footer.pug

@@ -1,0 +1,217 @@
+// solid, outline
+// small, regular, large
+// orange, secondary, dark, white
+@mixin btn($filling, $color) {
+  .btn-#{$filling}-#{$color} {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    width: fit-content;
+    border-radius: 4px;
+    transition: color .3s ease-in-out,
+      background-color .3s ease-in-out,
+      border-color .3s ease-in-out,
+      opacity .3s ease-in-out;
+    @media (max-width:576px) {
+      width: 100%;
+      text-align: center;
+    }
+    &:disabled {
+      opacity: .5;
+    }
+
+    &_large {
+      font-size: 16px;
+      padding-left: 40px;
+      padding-right: 40px;
+      @media (max-width:576px) {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &_regular {
+      font-size: 14px;
+      padding-left: 32px;
+      padding-right: 32px;
+      @media (max-width:576px) {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    &_small {
+      font-size: 12px;
+      padding-left: 24px;
+      padding-right: 24px;
+      @media (max-width:576px) {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    @if $color=='orange' {
+      $text-solid-color: $white;
+      $bg-color: $primary;
+      $text-outline-color: $primary;
+      $bd-color: $primary;
+      $active-text-color: $white;
+      $active-bg-color: $primary;
+
+      @if $filling=='solid' {
+        background-color: $bg-color;
+        color: $text-solid-color;
+      }
+
+      @else if $filling=='outline' {
+        background-color: transparent;
+        color: $text-outline-color;
+        border: 1px solid $bd-color;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        color: $active-text-color;
+        background-color: $active-bg-color;
+        border-color: $active-bg-color;
+
+        @if $filling=='solid' {
+          background-color: #fc3300;
+        }
+      }
+    }
+
+    @else if $color=='secondary' {
+      $text-solid-color: $gray800;
+      $bg-color: $gray300;
+      $text-outline-color: $gray800;
+      $bd-color: $gray400;
+      $active-text-color: $gray800;
+      $active-bg-color: $gray400;
+
+      @if $filling=='solid' {
+        background-color: $bg-color;
+        color: $text-solid-color;
+      }
+
+      @else if $filling=='outline' {
+        background-color: transparent;
+        color: $text-outline-color;
+        border: 1px solid $bd-color;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        color: $active-text-color;
+        background-color: $active-bg-color;
+        border-color: $active-bg-color;
+      }
+    }
+
+    @else if $color=='dark' {
+      $text-solid-color: $white;
+      $bg-color: $gray800;
+      $text-outline-color: $gray800;
+      $bd-color: $gray800;
+      $active-text-color: $white;
+      $active-bg-color: $gray900;
+
+      @if $filling=='solid' {
+        background-color: $bg-color;
+        color: $text-solid-color;
+      }
+
+      @else if $filling=='outline' {
+        background-color: transparent;
+        color: $text-outline-color;
+        border: 1px solid $bd-color;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        color: $active-text-color;
+        background-color: $active-bg-color;
+        border-color: $active-bg-color;
+      }
+    }
+
+    @else if $color=='white' {
+      $text-solid-color: $gray800;
+      $bg-color: $white;
+      $text-outline-color: $white;
+      $bd-color: $white;
+      $active-text-color: $gray900;
+      $active-bg-color: $white;
+
+      @if $filling=='solid' {
+        background-color: $bg-color;
+        color: $text-solid-color;
+      }
+
+      @else if $filling=='outline' {
+        background-color: transparent;
+        color: $text-outline-color;
+        border: 1px solid $bd-color;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        color: $active-text-color;
+        background-color: $active-bg-color;
+        border-color: $active-bg-color;
+      }
+    }
+
+
+    @if $filling=='solid' {
+      &_large {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+
+      &_regular {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      &_small {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    }
+
+    @else if $filling=='outline' {
+      &_large {
+        padding-top: calc(18px - 2px);
+        padding-bottom: calc(18px - 2px);
+      }
+
+      &_regular {
+        padding-top: calc(15px - 2px);
+        padding-bottom: calc(15px - 2px);
+      }
+
+      &_small {
+        padding-top: calc(12px - 2px);
+        padding-bottom: calc(12px - 2px);
+      }
+    }
+  }
+}
