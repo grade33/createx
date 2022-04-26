@@ -107,14 +107,15 @@ export function isVideo() {
   }
 }
 export function inputFileChange() {
-  const input = document.querySelector('.attach input')
-  if (input) {
-    input.addEventListener('change', () => {
-      const attach = input.closest('.attach')
-      attach.classList.add('attach_active')
-      input.files[0] ? attach.querySelector('span').innerHTML = input.files[0].name : null
-    })
-  }
+  document.querySelectorAll('.attach input').forEach(input => {
+    if (input) {
+      input.addEventListener('change', () => {
+        const attach = input.closest('.attach')
+        attach.classList.add('attach_active')
+        input.files[0] ? attach.querySelector('span').innerHTML = input.files[0].name : null
+      })
+    }
+  })
 }
 export function setShadowVacancyBtn() {
   const vacancyBtns = document.querySelectorAll('.vacancy__item-btn')

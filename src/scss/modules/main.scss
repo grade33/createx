@@ -715,6 +715,9 @@
   background-position: top right;
   background-color: $gray200;
   padding-bottom: 80px;
+  @media (max-width: 1200px) {
+    background-image: none !important;
+  }
   @media (max-width: 768px) {
     min-height: 400px;
     padding-bottom: 60px;
@@ -1372,7 +1375,7 @@
 
     &::before {
       counter-increment: section;
-      content: "0"counter(section);
+      content: "0" counter(section);
       @extend %h1;
       color: $gray400;
       padding: 12px 15px;
@@ -2892,9 +2895,6 @@
 .services {
   &__hero {
     background-image: url('@img/global/hero/services-bg.png');
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
   }
 
   &__maintenance {
@@ -2938,9 +2938,6 @@
   &__hero {
     margin-bottom: 120px;
     background-image: url('@img/global/hero/services-1-bg.png');
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
     @media (max-width: 768px) {
       margin-bottom: 60px;
     }
@@ -3032,9 +3029,6 @@
 .work {
   &__hero {
     background-image: url('@img/global/hero/work-bg.png');
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
   }
 
   &__works {
@@ -3125,9 +3119,6 @@
   &__hero {
     background-image: url('@img/global/hero/about-bg.png');
     background-position: bottom right;
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
   }
 
   &__achieve {
@@ -3230,9 +3221,6 @@
     background-image: url('@img/global/hero/positions-bg.png');
     background-position: bottom right;
     margin-bottom: 120px;
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
     @media (max-width: 768px) {
       margin-bottom: 60px;
     }
@@ -3287,9 +3275,6 @@
     position: relative;
     background-image: url('@img/global/hero/news-bg.png');
     margin-bottom: 120px;
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
     @media (max-width: 768px) {
       margin-bottom: 60px;
     }
@@ -3405,9 +3390,6 @@
   &__hero {
     background-image: url('@img/global/hero/contacts-bg.png');
     margin-bottom: 120px;
-    @media (max-width: 1200px) {
-      background-image: none;
-    }
     @media (max-width: 768px) {
       margin-bottom: 60px;
     }
